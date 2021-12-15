@@ -17,14 +17,14 @@ def check_models():
     """
 
     for _, _, files in os.walk(TOKEN_DIRECTORY):
-        if len(files) == 0:
+        if len(files) == 1:
             tokenizer = AutoTokenizer.from_pretrained(MODEL_URL)
             tokenizer.save_pretrained(TOKEN_DIRECTORY)
         else:
             tokenizer= AutoTokenizer.from_pretrained(TOKEN_DIRECTORY)
 
     for _, _, files in os.walk(MODEL_DIRECTORY):
-        if len(files) == 0:
+        if len(files) == 1:
             model = AutoModelForSequenceClassification.from_pretrained(MODEL_URL)
             model.save_pretrained(MODEL_DIRECTORY)
         else:
